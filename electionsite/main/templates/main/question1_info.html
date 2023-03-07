@@ -1,0 +1,14 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Results - {{name}} {% endblock title %}
+
+{% block content %}
+<h1> "{{name}}" Polling Units Results Summary</h1>
+<ul class="ppu-result-list">
+{% for unit in units %}
+    <li>{{unit.party_abbreviation}}: {{unit.party_score}} </li>
+{% endfor %}
+</ul>
+
+
+{% endblock content %}

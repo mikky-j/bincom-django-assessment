@@ -1,0 +1,11 @@
+{% extends 'main/base.html' %}
+{% block title %}Question 2{% endblock title %}
+{% block content %}
+<h1>LGAs</h1>
+<ul class="selection-list">
+{% for lga in lgas %}
+    <li><a href="{{lga.lga_id}}">{{lga.lga_name}}</a></li>
+{% endfor %}
+</ul>
+
+{% endblock content %}

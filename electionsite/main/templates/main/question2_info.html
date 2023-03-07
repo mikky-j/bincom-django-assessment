@@ -1,0 +1,20 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+{{name}}
+
+{% endblock title %}
+
+{% block content %}
+{% if length == 0 %}
+    <p> There's no data available for {{name}} </p>
+{% else %}
+<h1>Total Results of "{{name}}" LGA across all Polling Units</h1>
+<ul class="ppu-result-list">
+    {% for party, score in results.items %}
+        <li>{{party}} - {{score}}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+{% endblock content %}

@@ -1,0 +1,12 @@
+{% extends 'main/base.html' %} 
+{% block title %} Question 1 {% endblock %} 
+{% block content %} 
+<h1>Polling Units</h1>
+<ul class="selection-list">
+{% for unit in polling_units %}
+    {% comment %} <li><a href="/{{unit.polling_unit_id}}"{{unit.polling_unit_name}}</li> {% endcomment %}
+        <li><a href="{{unit.uniqueid}}">{{unit.polling_unit_name}}</a></li>
+{% endfor %}
+</ul>
+    
+{% endblock %}

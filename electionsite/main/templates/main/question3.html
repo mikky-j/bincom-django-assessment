@@ -1,0 +1,32 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Add a new polling unit{% endblock title %}
+
+{% block content %}
+<form method="POST" action="#"> 
+    <h1>Create a new Polling Unit </h1>
+    {% csrf_token %}
+    <label> Polling unit name: <input type="text" name="p_name" required /> </label><br>
+    <label> Polling ward:
+        <select name="ward" required>
+        {% for ward in wards %}
+            <option value="{{ward.ward_id}}"> {{ward.ward_name}}</option>
+        {% endfor %} 
+        </select>
+    </label><br>
+    <label>Polling LGA:
+        <select name="lga" required>
+            {% for lga in lgas %}
+                <option value="{{lga.lga_id}}">{{lga.lga_name}}</option>
+            {% endfor %}
+        </select>
+    </label><br>
+    {% for party in parties %}
+        <label>{{party.partyname}}
+            <input name="{{party.partyname}}" value=0 required type="number"/>
+        </label><br>
+    {% endfor %}
+    <input type="submit" value="Submit"/>
+</form>
+
+{% endblock content %}
